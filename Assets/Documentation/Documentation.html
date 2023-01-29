@@ -95,7 +95,8 @@
   }
   .centerImage{
     display: block;
-    margin:0 auto;
+    margin:20px auto;
+    box-shadow: 10px 12px 12px black;
   }
   .menuOpenButton{
     position:fixed;
@@ -136,6 +137,9 @@
   .brandImage{
     width:65%;
   }
+  .responsiveImage{
+    width:80%;
+  }
 </style>
 <script src="https://kit.fontawesome.com/aeae8d5774.js" crossorigin="anonymous"></script>
 </head>
@@ -157,6 +161,17 @@
   <div class="dropdown-container">
     <a href="#HowShaderPipeline">Overview</a>
     <a href="#URPShaders">URP Standard Shaders</a>
+  </div>
+  <button class="dropdown-btn">Examples
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="#CreateAShader">1. Creating a Shader</a>
+    <a href="#BlankShaderGraph">2. Creating a blank shader graph</a>
+    <a href="#BasicColorShader">3. Creating a basic color shader</a>
+    <a href="#ChangeThePreview">4. How to set the shader preview</a>
+    <a href="#AssigningTheShader">5. How to assign a shader to an object</a>
+    <a href="#ExposeAVariable">6. How to expose a variable from the shader</a>
   </div>
   <button class="dropdown-btn">Definitions
     <i class="fa fa-caret-down"></i>
@@ -184,7 +199,7 @@
       <tr>
         <th>0.1</th>
         <th>January 29, 2023</th>
-        <th>Creation of the document to act as a guide for supporting the project</th>
+        <th>Creation of the document to act as a guide for supporting the project and creation of some examples</th>
       </tr>
     </table>
   </div>
@@ -272,7 +287,6 @@
   </div><!--End Section-->
 
   <!--new section-->
-  <!-- <li><b>Term</b>: Definition</li> -->
   <div class="section" id="HowShaderPipeline">
     <h1>Shader and Render Pipeline</h1>
     <p>
@@ -319,6 +333,98 @@
       
     </ul>
     
+
+  </div><!--End Section-->
+
+  <!--new section-->
+  <div class="section" id="CreateAShader">
+    <h1>1. How to create a shader with shader graph</h1>
+    <p>
+      Be sure that you have the shader graph package installed. Then all you need to do is right-click in your project and navigate to shader graph. From there you can choose what you want to start as a base line for creating the shader.
+    </p>
+    <img class="centerImage responsiveImage" src="images/Examples/1.gif">
+
+  </div><!--End Section-->
+
+  <!--new section-->
+  <div class="section" id="BlankShaderGraph">
+    <h1>2. Working with a blank shader graph</h1>
+    <p>
+      Create a shader similar to <a href="#CreateAShader">1. Create a Shader</a>, but this time choose 'Blank Shader Graph'
+    </p>
+    <img class="centerImage  responsiveImage" src="images/Examples/2_1.gif">
+    <p>
+      To open the shader graph. Just double click the shader you just created or click the 'Open Shader Editor' in the inspector.
+    </p>
+    <img class="centerImage  responsiveImage" src="images/Examples/2_2.gif">
+    <p>
+      To make the shader work, you need to set the 'Active Targets' which in this case, I'm setting it to 'Universal' for URP. This is going to change the nodes to set the shader up for the basic URP shader. We can then choose the base shader to build the newly created shader off of. I'm going to choose 'Unlit' for this example.
+    </p>
+    <img class="centerImage  responsiveImage" src="images/Examples/2_3.gif">
+
+  </div><!--End Section-->
+
+  <!--new section-->
+  <div class="section" id="BasicColorShader">
+    <h1>3. How to create a basic color shader</h1>
+    <p>
+      Using the unlit shader we made in <a href="#BlankShaderGraph">2. Working with a blank shader graph</a> we are going to assign a color to the shader. It's also very important that we manually *save* the shader. We can do this by clicking the 'Save Asset' button on the top left of the graph.
+    </p>
+    <img class="centerImage  responsiveImage" src="images/Examples/3_1.gif">
+
+  </div><!--End Section-->
+
+  <!--new section-->
+  <div class="section" id="ChangeThePreview">
+    <h1>4. How to see how the shader will look in the preview</h1>
+    <p>
+      To adjust the preview to reflect how the shader will look on our mesh, we can right-click the preview window and assign our desired mesh.
+    </p>
+    <p>
+      We are going to choose 'Custom Mesh' and then choose the mesh we want. You can then rotate the preview by holding the left-mouse button and moving the mouse.
+    </p>
+    <img class="centerImage  responsiveImage" src="images/Examples/4_1.gif">
+
+  </div><!--End Section-->
+
+  <!--new section-->
+  <div class="section" id="AssigningTheShader">
+    <h1>5. How to assign the shader to an object</h1>
+    <p>
+      We can utilize shaders by creating materials. We first need to create a material, then we can assign it the shader of our choice.
+    </p>
+    <p>
+      We can find the shader we made under 'Shader Graph' in the options.
+    </p>
+    <img class="centerImage  responsiveImage" src="images/Examples/5_1.gif">
+    <img class="centerImage  responsiveImage" src="images/Examples/5_2.gif">
+    <img class="centerImage  responsiveImage" src="images/Examples/5_3.gif">
+
+  </div><!--End Section-->
+
+  <!--new section-->
+  <div class="section" id="ExposeAVariable">
+    <h1>6. How to expose a variable from the shader to be able to set it from the material</h1>
+    <p>
+      So sometimes it's easier to change stuff like color from the material rather than opening and editing the shader in shader graph. We can do this by creating a variable that will hold the color. Then we assign the variable to the proper parameter in the shader.
+    </p>
+    <p>
+      We can create variables in the shader graph throught the 'Blackboard' window. To create a variable for color, we are going to click the plus button and then choose color.
+    </p>
+    <img class="centerImage  responsiveImage" src="images/Examples/6_1.gif">
+    <p>
+      We then just need to drag the variable into the shader graph and then connect it to the appropriate spot.
+    </p>
+    <img class="centerImage  responsiveImage" src="images/Examples/6_2.gif">
+    <p>
+      In the graph inspector, we can change the name and settings, but most importantly we can choose to expose the variable. When a variable is exposed, it can be changed by the material using that shader. You can easily tell if a variable is exposed by if the variable has a green dot next to its name. <bold>Remeber to save</bold>
+    </p>
+    <img class="centerImage  responsiveImage" src="images/Examples/6_3.gif">
+    <p>
+      Now we should be able to set the base color from the material instead of inside the shader graph.
+    </p>
+    <img class="centerImage  responsiveImage" src="images/Examples/6_4.gif">
+
 
   </div><!--End Section-->
 
