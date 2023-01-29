@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  body {
+    font-family: "Lato", sans-serif;
+    paddind:0;
+    margin:0;
+  }
+  p,ul,li{
+    text-align: justify;
+    font-size: 16pt;
+    padding: 2px 10px;
+  }
+  .HeaderTitle{
+    padding:10px;
+
+
+  }
+  .section{
+    background-color: #EFE6DD;
+    padding:10px 40px;
+    border-bottom: black 2px solid;
+    border-top:black 2px solid;
+    margin:20px 0;
+  }
+
+  .sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  .dropdown-btn {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    border: none;
+    background: none;
+    width:100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+  }
+  .dropdown-btn:hover {
+    color: #f1f1f1;
+  }
+  /* Add an active class to the active dropdown button */
+  .active {
+    background-color: #530C0C;
+    color: white;
+  }
+
+  /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+  .dropdown-container {
+    display: none;
+    background-color: #262626;
+    padding-left: 8px;
+  }
+
+  /* Optional: Style the caret down icon */
+  .fa-caret-down {
+    float: right;
+    padding-right: 8px;
+  }
+  .centerImage{
+    display: block;
+    margin:0 auto;
+  }
+  .menuOpenButton{
+    position:fixed;
+    top:20px;
+    left:20px;
+    color: rgba(0, 0, 0, 0.5);
+  }
+  .menuOpenButton:hover{
+    color:white;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  #main {
+    transition: margin-left .5s;
+    padding: 0px;
+  }
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+    box-shadow: 10px 5px 20px black;
+  }
+
+  th, td {
+    text-align: left;
+    padding: 16px;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+  
+  .brandImage{
+    width:65%;
+  }
+</style>
+<script src="https://kit.fontawesome.com/aeae8d5774.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#ProjectOverview">Project Overview</a>
+  <button class="dropdown-btn">Coding Conventions
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="#Naming">Naming</a>
+    <a href="#FolderStructure">Folder Structure</a>
+  </div>
+  <button class="dropdown-btn">Shader and Render Pipeline
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="#HowShaderPipeline">Overview</a>
+    <a href="#URPShaders">URP Standard Shaders</a>
+  </div>
+  <button class="dropdown-btn">Definitions
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="#ShaderPipeline">Shader Pipeline</a>
+    <a href="#Shaders">Shaders</a>
+  </div>
+</div>
+
+<div id="main">
+  <span class="menuOpenButton" style="font-size:30px;cursor:pointer" onmouseover="displayMenu()" onmouseout="normalMenu()" onclick="openNav()"><i id="MenuButton"style="padding:5px;" class="fa-solid fa-bars"></i></span>
+  <div>
+    <img class="brandImage centerImage" src="images/brandImg.png">
+  </div>
+  <div class="section" id="VersionHistory">
+    <h1 >Shaders Documentation</h1>
+    <h1>Document Version History</h1>
+    <table>
+      <tr>
+        <th>Version</th>
+        <th>Date</th>
+        <th>Change</th>
+      </tr>
+      <tr>
+        <th>0.1</th>
+        <th>January 29, 2023</th>
+        <th>Creation of the document to act as a guide for supporting the project</th>
+      </tr>
+    </table>
+  </div>
+  
+  
+  <div class="section" id="ProjectOverview">
+    
+    <h2>Project Overview</h2>
+    <ul>
+      <li>
+        <b>Editor:</b> Unity
+      </li>
+      <li><b>Version:</b> 2021.3.17</li>
+      <li><b>Renderer Pipeline:</b> URP(Universal Render Pipeline)</li>
+      <li><b>Project Manager:</b> Michael Quinn</li>
+      <li><b>Developers:</b>
+        <ul>
+          <li>Michael Quinn | <a target="_blank" href="https://MikeQ.dev">Portfolio</a> | <a target="_blank" href="https://DirtyCookStudio.com">Dirty Cook Studio</a></li>
+        </ul>
+      </li>
+    </ul>
+    <p>The goal of this project is to create one space for me to showcase everything I learn while researching URP and shader development.</p>
+    <h4>Features</h4>
+    <ul>
+      <li>Working with URP</li>
+      <li>Working with shaders and the Shader Graph</li>
+      <li>Working with shaders in programming</li>
+    </ul>
+
+    <h4>Dependencies</h4>
+    <h5>Free</h5>
+    <ul>
+      <li></li>
+    </ul>
+    <h5>Paid</h5>
+    <ul>
+      <li></li>
+    </ul>
+  </div><!--End Section-->
+
+  <!--newSection-->
+  <div class="section" id="#CodingConventions">
+    
+    <h1>Coding Conventions</h1>
+    <p>Coding conventions are extremely important and allow the code to stay in the same format no matter who developed it.
+      By keeping the code format similar, we can more efficiently read and write code without comments. This section will list the coding conventions chosen for this project and can be used as a guide for what is expected within this project.
+    </p>
+    <h2 id="Naming">Naming Conventions</h2>
+
+    <table>
+      <tr>
+        <th>Situation</th>
+        <th>Naming</th>
+      </tr>
+      <tr>
+        <th>Class Name (public, private, abstract, async)</th>
+        <th>PascalCasing | "PlayerBaseState" "PlayerFreeLookState"</th>
+      </tr>
+      <tr>
+        <th>Public fields, properties, events, methods, local functions </th>
+        <th>PascalCasing | "MovementSpeed" "RotationSpeed"</th>
+      </tr>
+      <tr>
+        <th>Private fields</th>
+        <th>_camelCase | "_movementSpeed" "_rotationSpeed"</th>
+      </tr>
+      <tr>
+        <th>Method parameters</th>
+        <th>camelCase | "movementSpeed" "rotationSpeed"</th>
+      </tr>
+      <tr>
+        <th>Method and Variable names</th>
+        <th>Make method and variable names understandable even if they become long</th>
+      </tr>
+      
+    </table>
+    <h2 id="FolderStructure">Folder Structure</h2>
+    <p>
+      This section will help you navigate the folder structure. This first picture will show an example of the root Assets folder. At this level, these folders are separated by type. There will be folders for dependencies that will be at this level as well.
+    </p>
+    <img class="centerImage" src="images/CodingConventions_01.png">
+    
+  </div><!--End Section-->
+
+  <!--new section-->
+  <!-- <li><b>Term</b>: Definition</li> -->
+  <div class="section" id="HowShaderPipeline">
+    <h1>Shader and Render Pipeline</h1>
+    <p>
+      The shader pipeline is the many steps that encompass what the input data needs to go through before the video card renders it. Each stage handles a very specific task within the pipeline and can be modified or even replaced with custom code created in a shader language.
+    </p>
+    <p>
+      A simple render pipeline consists of the following stages in order
+    </p>
+    <ul><b></b>
+      <li><b>Input Assembler</b>: all of the mesh data, vertex position, UVs and normals are assembled and prepared for the next stage</li>
+      <li><b>Vertex Shader</b>: This stage is where you can modify the shape of the object. This stage takes in each vertex and outputs a modified version. This stage also allows the opportunity to calculate data for the following stages</li>
+      <li><b>Culling</b>: This allows you to determine if any portions of the object need to be or not be rendered. Not rendering the back side of a model or inside of a cube can save on pixel calculation. Conversely, rendering both sides of glass is required. This is the stage where rendering is determined.
+      </li>
+      <li><b>Rasterizer</b>: This stage takes the modified and visible geometry and converts it to pixels.</li>
+      <li><b>Fragment Shade</b>: This stage takes the rasterized pixels and determines what color each pixel should be. This can be as simple as setting all the pixels one color or as complicated as creating a water or hologram effect.</li>
+      <li><b>Depth Testing</b>: This stage determines the pixel’s depth from each other to be sure that the pixels closest to the camera render on top of pixels further away. This can be changed to allow you to see objects behind the model, allowing for a translucent effect.</li>
+      <li><b>Blending</b>: This step allows the blending of pixels(specifically in the translucent example from the previous stage). The final stage is when the image is loaded into the back-buffer.</li>
+    </ul>
+
+    <h1>Why Scriptable Render Pipeline</h1>
+    <p>
+      The render pipeline is what tells the video card to execute the shader pipeline per object. Unity originally created the Built In Render Pipeline as a catchall solution for any and every need in Unity. This created a ton of overhead in its attempt to cover mobile 2D, simple 3D, and high-end cutting-edge 3D.
+    </p>
+    <p>
+      To solve this problem, Unity created the SRP, scriptable render pipeline, as a way to allow users to create their own render pipelines adapted for their individual projects. This then became a large task for each project, so Unity created templates of scriptable render pipelines called URP, universal render pipeline, and HDRP, high definition render pipeline.
+    </p>
+    
+
+  </div><!--End Section-->
+
+
+  <!--new section-->
+  <div class="section" id="URPShaders">
+    <h1>URP Standard Shaders</h1>
+    <p>
+      There are three shaders that come with URP and can be used as a base when creating any other shaders. These are the Lit, Simple Lit, and Unlit shaders.
+    </p>
+    <ul><b></b>
+      <li><b>Lit</b>: This shader replaces the standard lit shader and supports normal mapping, occlusion, metallic/specular, and transparency. This shader is useful for creating realistic physics materials like wood, rubber, metal, or skin.
+      </li>
+      <li><b>Simple Lit</b>: This shader replaced the mobile/diffuse shader. This shader is a lighter version of the Lit shader and does not allow realistic lighting effects.</li>
+      <li><b>Unlit</b>: This shader replaced the unlit/texture shader. This is an extremely performant shader that does not allow for any lighting effects or shadows. Shadows may be baked into the texture but are never created at runtime. This shader works well for screens that can’t receive shadows because they emit light and should be seen at their full color even in complete darkness.
+      </li>
+      
+    </ul>
+    
+
+  </div><!--End Section-->
+
+
+  <!--new section-->
+  <!-- <li><b>Term</b>: Definition</li> -->
+  <div class="section" id="Definitions">
+    <h1>Definitions</h1>
+    <p>
+      A non alphabetical grouping of all the terminology explained.
+    </p>
+    <h2 id="ShaderPipeline">Shader Pipeline</h2>
+    <ul><b></b>
+      <li><b>Back-Buffer</b>: an image that the user won't see but is where video cards draw objects. This keeps unfinished results from being viewed by the user</li>
+      <li><b>Front-Buffer</b>: the image that the user does see. This image is the finished results from the back-buffer.</li>
+    </ul>
+    <h2 id="Shaders">Shaders</h2>
+    <ul><b></b>
+      <li><b>Shader</b>: a program coded in a video card language to affect the way an object is rendered.</li>
+      <li><b>DirectX</b>: a graphics library</li>
+      <li><b>Vulcan</b>: a graphics library</li>
+      <li><b>OpenGL</b>: a graphics library</li>
+      <li><b>HLSL</b>: High-Level Shader Language, the DirectX shading language with support for Vulcan</li>
+      <li><b>GLSL</b>: OpenGL Shading Language, the OpenGL shading language with support for Vulcan</li>
+      <li><b>CG</b>: C for Graphics, a shading language that can output either HLSL or GLSL </li>
+      <li><b>Shader Graph</b>: a visual language for creating shaders in Unity that will automatically output in HLSL or GLSL based on the project and build settings.</li>
+    </ul>
+
+  </div><!--End Section-->
+
+<!--/Sections-->
+</div>
+
+
+
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+var menuButton = document.getElementById("MenuButton");
+function displayMenu(){
+  menuButton.textContent = ' Menu  ';
+}
+function normalMenu(){
+  menuButton.textContent = ''
+}
+</script>
+<script>
+/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var dropdownContent = this.nextElementSibling;
+    if (dropdownContent.style.display === "block") {
+      dropdownContent.style.display = "none";
+    } else {
+      dropdownContent.style.display = "block";
+    }
+  });
+}
+</script>
+   
+</body>
+</html>
