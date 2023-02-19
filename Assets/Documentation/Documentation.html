@@ -174,11 +174,13 @@
     <a href="#ChangeThePreview">4. How to set the shader preview</a>
     <a href="#AssigningTheShader">5. How to assign a shader to an object</a>
     <a href="#ExposeAVariable">6. How to expose a variable from the shader</a>
+    <a href="#CustomDiffuseLitShader">7. Creating a custom Diffuse Lit shader</a>
   </div>
   <button class="dropdown-btn">Definitions
     <i class="fa fa-caret-down"></i>
   </button>
   <div class="dropdown-container">
+    <a href="#LightingDef">Lighting</a>
     <a href="#ShaderPipeline">Shader Pipeline</a>
     <a href="#Shaders">Shaders</a>
   </div>
@@ -351,7 +353,7 @@
       </code>
     </p>
     
-    <img class="centerImage" src="images/LambertLightModel.png">
+    <img class="centerImage responsiveImage" src="images/LambertLightModel.png">
     
   </div><!--End Section-->
 
@@ -444,6 +446,49 @@
     </p>
     <img class="centerImage  responsiveImage" src="images/Examples/6_4.gif">
 
+
+  </div><!--End Section-->
+
+  <!--new section-->
+  <div class="section" id="CustomDiffuseLitShader">
+    <h1>7. How to create a custom diffuse lit shader</h1>
+    <p>
+      This section will step you through creating a custom diffuse lit shader using the Lambert Lighting Model and equation.
+    </p>
+    <p>
+      First I’m going to create a new unlit shader for URP. Then I’m going to change the preview model to the current model I’m working with.
+    </p>
+    <img class="centerImage  responsiveImage" src="images/Examples/7_1.gif">
+    <img class="centerImage  responsiveImage" src="images/Examples/7_2.gif">
+    <p>
+      Now we will need to create some shader variables for the equation. These will be a Color variable for the color, a Vector3 variable for the light source, and a float variable for the strength.
+    </p>
+    <img class="centerImage  responsiveImage" src="images/Examples/7_3.gif">
+    <p>
+      Next we will need to get the Normal Vector of the object and use the Dot Product node to calculate the dot product of the normal vector and the light source vector.
+    </p>
+    <img class="centerImage  responsiveImage" src="images/Examples/7_4.gif">
+    <p>
+      To make this easier to see in the shader graph, I’m going to assign a value to both the Color and LightSource variables.
+    </p>
+    <img class="centerImage  responsiveImage" src="images/Examples/7_5.gif">
+    <p>
+      At any point, you can also connect the current node to the Base Color section of the master stack to see how the shader will look on the selected model.
+    </p>
+    <img class="centerImage  responsiveImage" src="images/Examples/7_6.gif">
+    <p>
+      We then need to create a multiply node to multiply the dot product by the color. Then we create another multiply node to multiply that by the strength variable.
+    </p>
+    <img class="centerImage  responsiveImage" src="images/Examples/7_7.gif">
+    <p>
+      After all that we can then connect the final product to the base color section of the master stack.
+    </p>
+    <img class="centerImage  responsiveImage" src="images/Examples/7_8.gif">
+    <p>
+      After we create a new material, assign the shader, and attach that material to an object in our scene we can now adjust every variable in the inspector for our custom diffuse shader.
+    </p>
+    <img class="centerImage  responsiveImage" src="images/Examples/7_9.gif">
+    
 
   </div><!--End Section-->
 
