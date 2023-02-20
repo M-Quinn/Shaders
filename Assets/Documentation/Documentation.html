@@ -534,6 +534,74 @@
 
   </div><!--End Section-->
 
+  <!--new section-->
+  <div class="section" id="CustomSpecularLitShader">
+    <h1>8. How to create a custom specular lit shader</h1>
+    <p>
+      This section will step you through creating a custom specular lit shader using the Blinn-Phong Lighting Model and equation.
+    </p>
+    <p>
+      First we are going to make a new shader based off the URP unlit shader.
+    </p>
+    <img class="centerImage  responsiveImage" src="images/Examples/8_1.gif">
+    <p>
+      We then create our variables, a Vector3 for the light source vector and float for the specular power and I’m going to assign them starting values just so I can see what’s going on in the graph.
+    </p>
+    <img class="centerImage  responsiveImage" src="images/Examples/8_2.gif">
+    <p>
+      We will need to create a View Direction node which will be the Vector3 that represents the viewer’s vector. We can then create the Halfway vector by adding the light source and viewer’s vector together.
+    </p>
+    <img class="centerImage  responsiveImage" src="images/Examples/8_3.gif">
+    <p>
+      Now we just need to normalize the halfway vector, then use the dot product to combine the halfway vector with the object face’s normal vector. To do that we are going to create a Normalize node, then a Normal Vector node and a Dot Product node.
+    </p>
+    <img class="centerImage  responsiveImage" src="images/Examples/8_4.gif">
+    <p>
+      Next we need to add a Saturate node. A Saturate node will clamp all the values between 0-1. We are going to run the dot product vector through the Saturate node and then we are going to calculate the value to the power of the Specular variable we made. To do that we are going to need to create a Power node. When connecting the Power node, it is very important to use the right section. A is the first value which is then being calculated to the power of B. Then we can connect that to the Base Color of the Master Stack.
+    </p>
+    <img class="centerImage  responsiveImage" src="images/Examples/8_5.gif">
+    <p>
+      We can now change the display window to our cat model and see how it looks.
+    </p>
+    <img class="centerImage  responsiveImage" src="images/Examples/8_6.gif">
+    
+
+  </div><!--End Section-->
+
+  <!--new section-->
+  <div class="section" id="CustomDiffuseAndSpecularLitShader">
+    <h1>9. How to create a custom diffuse and specular lit shader</h1>
+    <p>
+      This section will combine the Specular reflection from the Blinn-Phong model created in example 8 with the Diffuse Lambert model created in example 7.
+    </p>
+    <p>
+      To start I am going to duplicate the Blinn-Phong shader created in Example 8 using Ctrl+D on windows to duplicate the shader.
+    </p>
+    <img class="centerImage  responsiveImage" src="images/Examples/8_1.gif">
+    <p>
+      We then create our variables, a Vector3 for the light source vector and float for the specular power and I’m going to assign them starting values just so I can see what’s going on in the graph.
+    </p>
+    <img class="centerImage  responsiveImage" src="images/Examples/8_2.gif">
+    <p>
+      We will need to create a View Direction node which will be the Vector3 that represents the viewer’s vector. We can then create the Halfway vector by adding the light source and viewer’s vector together.
+    </p>
+    <img class="centerImage  responsiveImage" src="images/Examples/8_3.gif">
+    <p>
+      Now we just need to normalize the halfway vector, then use the dot product to combine the halfway vector with the object face’s normal vector. To do that we are going to create a Normalize node, then a Normal Vector node and a Dot Product node.
+    </p>
+    <img class="centerImage  responsiveImage" src="images/Examples/8_4.gif">
+    <p>
+      Next we need to add a Saturate node. A Saturate node will clamp all the values between 0-1. We are going to run the dot product vector through the Saturate node and then we are going to calculate the value to the power of the Specular variable we made. To do that we are going to need to create a Power node. When connecting the Power node, it is very important to use the right section. A is the first value which is then being calculated to the power of B. Then we can connect that to the Base Color of the Master Stack.
+    </p>
+    <img class="centerImage  responsiveImage" src="images/Examples/8_5.gif">
+    <p>
+      We can now change the display window to our cat model and see how it looks.
+    </p>
+    <img class="centerImage  responsiveImage" src="images/Examples/8_6.gif">
+    
+
+  </div><!--End Section-->
+
 
   <!--new section-->
   <!-- <li><b>Term</b>: Definition</li> -->
