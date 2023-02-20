@@ -157,6 +157,14 @@
     <a href="#Naming">Naming</a>
     <a href="#FolderStructure">Folder Structure</a>
   </div>
+  <button class="dropdown-btn">Lighting Models
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="#LambertModel">Lambert Model</a>
+    <a href="#PhongModel">Phong Model</a>
+    <a href="#BlinnPhongModel">Blinn-Phong Model</a>
+  </div>
   <button class="dropdown-btn">Shader and Render Pipeline
     <i class="fa fa-caret-down"></i>
   </button>
@@ -209,6 +217,11 @@
         <th>0.2</th>
         <th>February 19, 2023</th>
         <th>Creation of Example 7, Addition of Lambert Lighting Model, Update to definitions</th>
+      </tr>
+      <tr>
+        <th>0.3</th>
+        <th>February 20, 2023</th>
+        <th>Creation of the Lighting model section and addition of Phong and Blinn-Phong models</th>
       </tr>
     </table>
   </div>
@@ -359,6 +372,30 @@
     </p>
     
     <img class="centerImage responsiveImage" src="images/LambertLightModel.png">
+    
+  </div><!--End Section-->
+  <!--new section-->
+  <div class="section" id="PhongModel">
+    <h1>Phong Lighting Model</h1>
+    <p>
+      The Lambert Lighting Model was good at creating a simple lighting model that would simulate basic diffuse lighting. The Phong Lighting Model takes that a step further and includes the viewer's vector to the object to simulate specular reflection. Phong uses reflection vectors between the object and the viewer to simulate the amount of light that would be reflected from the light source.
+    </p>
+    <p>
+      This model requires cosine calculations on the angles of reflection and can be expensive.
+    </p>
+    
+    <img class="centerImage responsiveImage" src="images/Phong.png">
+    
+  </div><!--End Section-->
+
+  <!--new section-->
+  <div class="section" id="BlinnPhongModel">
+    <h1>Blinn-Phong Lighting Model</h1>
+    <p>
+      The Blinn-Phong Lighting Model is an updated version of the Phong Model and uses a <b>Halfway Vector</b> to lower the expense of calculation. The halfway vector sits halfway between the lighting source vector and the viewer vector. This model then lets you simulate specular reflection with less resources.
+    </p>
+    
+    <img class="centerImage responsiveImage" src="images/BlinnPhong.png">
     
   </div><!--End Section-->
 
