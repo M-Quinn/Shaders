@@ -223,7 +223,7 @@
       <tr>
         <th>0.3</th>
         <th>February 20, 2023</th>
-        <th>Creation of the Lighting model section and addition of Phong and Blinn-Phong models</th>
+        <th>Creation of the Lighting model section and addition of Phong and Blinn-Phong models<br>Creation of example 8 (custom specular) and 9(custom specular and diffuse together)</th>
       </tr>
     </table>
   </div>
@@ -609,6 +609,15 @@
       <li><b>Ambient Light</b>: Background light that doesn't come from any specific source.</li>
       <li><b>Diffuse Light</b>: When light, coming from a light source, illuminates object geometry. This gives the object depth and volume.</li>
       <li><b>Specular Light</b>: When light, coming from a light source, bounces off a surface and back towards the viewer. This gives the perception of shiny objects</li>
+      <li><b>Reflection</b>: Done by drawing rays from the viewer to the reflective surface and then calculating where it bounces off. This is a reverse calculation to lighting.</li>
+      <li><b>Diffusion</b>: How color and light are distributed across the surface by considering what light is absorbed and what light is reflected</li>
+      <li><b>Translucency and Transparency</b>: Examine how light can move through objects and render them fully or partly see through.</li>
+      <li><b>Conservation of Energy</b>: Concept that ensures objects never reflect more light than they receive. All objects will absorb light depending on the surface.</li>
+      <li><b>Metallicity </b>: Considers the interaction of light on shiny surfaces.</li>
+      <li><b>Fresnel Reflectivity</b>: How reflections on a curve surface become stronger on the edges.</li>
+      <li><b>Microsurface Scattering</b>: Similar to bump mapping and allows surfaces to have grooves and cracks that refract the light at different angles.</li>
+      <li><b>Vertex Lit</b>: Incoming light is calculated at each vertex then averaged across the surface. This method can sometimes lack detail but is relatively quick and works well on mobile devices.</li>
+      <li><b>Pixel Lit</b>: Incoming light is calculated on each pixel. This picks up more detail on specular highlights. Provides more detail shading but requires more processing. This method can sometimes be too resource heavy for mobile devices.</li>
     </ul>
     <h2 id="ShaderPipeline">Shader Pipeline</h2>
     <ul><b></b>
