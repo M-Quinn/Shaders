@@ -183,6 +183,8 @@
     <a href="#AssigningTheShader">5. How to assign a shader to an object</a>
     <a href="#ExposeAVariable">6. How to expose a variable from the shader</a>
     <a href="#CustomDiffuseLitShader">7. Creating a custom Diffuse Lit shader</a>
+    <a href="#CustomSpecularLitShader">8. Creating a custom Specular Lit shader</a>
+    <a href="#CustomDiffuseAndSpecularLitShader">9. Creating a custom Diffuse and Specular Lit shader</a>
   </div>
   <button class="dropdown-btn">Definitions
     <i class="fa fa-caret-down"></i>
@@ -577,28 +579,20 @@
     <p>
       To start I am going to duplicate the Blinn-Phong shader created in Example 8 using Ctrl+D on windows to duplicate the shader.
     </p>
-    <img class="centerImage  responsiveImage" src="images/Examples/8_1.gif">
+    <img class="centerImage  responsiveImage" src="images/Examples/9_1.gif">
     <p>
-      We then create our variables, a Vector3 for the light source vector and float for the specular power and I’m going to assign them starting values just so I can see what’s going on in the graph.
+      Next we are going to need to add in our variables from the Lambert model. We already have a Vector3 for the light source so we will just need to add a Color variable and a float for the strength. I’m also just going to set the values for the two variables so that we can see what’s happening in the shader graph.
     </p>
-    <img class="centerImage  responsiveImage" src="images/Examples/8_2.gif">
+    <img class="centerImage  responsiveImage" src="images/Examples/9_2.gif">
     <p>
-      We will need to create a View Direction node which will be the Vector3 that represents the viewer’s vector. We can then create the Halfway vector by adding the light source and viewer’s vector together.
+      Now we can recreate the Lambert model we already created in example 7. We will get the dot product of the Normal Vector and light source vector then multiply that by the color and multiply again by the strength variable.
     </p>
-    <img class="centerImage  responsiveImage" src="images/Examples/8_3.gif">
+    <img class="centerImage  responsiveImage" src="images/Examples/9_3.gif">
     <p>
-      Now we just need to normalize the halfway vector, then use the dot product to combine the halfway vector with the object face’s normal vector. To do that we are going to create a Normalize node, then a Normal Vector node and a Dot Product node.
+      Now all we need to do left is multiply the final specular value and final diffuse value. Then we can connect that output to the Base Color of the Master Stack.
     </p>
-    <img class="centerImage  responsiveImage" src="images/Examples/8_4.gif">
-    <p>
-      Next we need to add a Saturate node. A Saturate node will clamp all the values between 0-1. We are going to run the dot product vector through the Saturate node and then we are going to calculate the value to the power of the Specular variable we made. To do that we are going to need to create a Power node. When connecting the Power node, it is very important to use the right section. A is the first value which is then being calculated to the power of B. Then we can connect that to the Base Color of the Master Stack.
-    </p>
-    <img class="centerImage  responsiveImage" src="images/Examples/8_5.gif">
-    <p>
-      We can now change the display window to our cat model and see how it looks.
-    </p>
-    <img class="centerImage  responsiveImage" src="images/Examples/8_6.gif">
-    
+    <img class="centerImage  responsiveImage" src="images/Examples/9_4.gif">
+        
 
   </div><!--End Section-->
 
