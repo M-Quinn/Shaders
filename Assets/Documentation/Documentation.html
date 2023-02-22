@@ -621,6 +621,28 @@
 
   </div><!--End Section-->
 
+  <!--new section-->
+  <div class="section" id="CustomDiffuseAndSpecularLitShader">
+    <h1>10. How to use a texture in a shader</h1>
+    <p>
+      This section will be a quick guide to how you can provide a shader a texture rather than using a base color.
+    </p>
+    <p>
+      To start we can create a new shader asset. For this example I'm going to create a new URP Lit shader.
+    </p>
+    <img class="centerImage  responsiveImage" src="images/Examples/10_1.gif">
+    <p>
+      Then we can create a variable for the Texture 2D that can be assigned in the material. To let us see what’s going on in the shader graph, I’m going to assign a texture to the variable within the Graph Inspector.
+    </p>
+    <img class="centerImage  responsiveImage" src="images/Examples/10_2.gif">
+    <p>
+      To hook all this up, we need to create a Sample Texture 2D node that we can provide the texture and then connect that node to the Base Color section of the Master Stack.
+    </p>
+    <img class="centerImage  responsiveImage" src="images/Examples/10_3.gif">
+    
+
+  </div><!--End Section-->
+
 
   <!--new section-->
   <!-- <li><b>Term</b>: Definition</li> -->
