@@ -669,10 +669,44 @@
     <p>
       Now let’s talk about the color gray for a second. Color is made up of red, green, and blue values from 0-255. Gray is special because gray requires the R, G, and B to all be the same color. RGB(3,3,3) and RGB(212,212,212) are both gray but just with different intensities. So instead of using the full RGBA value, we can just use red, green, or blue for example.
     </p>
-    For this example, I’m going to use the R value to connect to the Smoothness section of the Master Stack. On the right of my gif, you will see the update to the Game view where I already made a material and connected it to an object and this shader.
     <p>
+      For this example, I’m going to use the R value to connect to the Smoothness section of the Master Stack. On the right of my gif, you will see the update to the Game view where I already made a material and connected it to an object and this shader.
     </p>
     <img class="centerImage  responsiveImage" src="images/Examples/11_3.gif">
+    
+
+  </div><!--End Section-->
+
+  <!--new section-->
+  <div class="section" id="Example12">
+    <h1>12. PBR: Working with emissions</h1>
+    <p>
+      When working with shaders, emission is when color is emitted from an object. In this example we are going to use an image “stripes.jpg” which is included in this repo to emit color from the texture.
+    </p>
+    <p>
+      First I’m going to duplicate and rename the shader made in example 11.
+    </p>
+    <img class="centerImage  responsiveImage" src="images/Examples/12_1.gif">
+    <p>
+      Next I’m going to again create a variable to hold the Texture 2D and assign the value throught the Graph Inspector. You don’t need to create a variable, but this allows the texture to be replaced easily on the material.
+    </p>
+    <img class="centerImage  responsiveImage" src="images/Examples/12_2.gif">
+    <p>
+      Next I’m going to create a variable for the color that I want emitted. I’m also going to assign the value through the Graph Inspector.
+    </p>
+    <img class="centerImage  responsiveImage" src="images/Examples/12_3.gif">
+    <p>
+      Now we need to create another Sample Texture 2D node to read the texture and then we are going to multiply that by the color variable.
+    </p>
+    <img class="centerImage  responsiveImage" src="images/Examples/12_4.gif">
+    <p>
+      All we need to do now is connect the output of the Multiply node to the Emission section of the Master Stack, save the asset and see how it looks in the Game window.
+    </p>
+    <img class="centerImage  responsiveImage" src="images/Examples/12_5.gif">
+    <p>
+      To add further customization, we can create a Strength value to increase or decrease the intensity of the emission. To do that we just create a float variable called Strength and another Multiply node. We will multiply the output of the original multiply by the Strength variable and then connect that to the Emissions section of the Master Stack.
+    </p>
+    <img class="centerImage  responsiveImage" src="images/Examples/12_6.gif">
     
 
   </div><!--End Section-->
