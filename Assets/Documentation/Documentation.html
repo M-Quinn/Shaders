@@ -187,6 +187,7 @@
     <a href="#CustomSpecularLitShader">8. Creating a custom Specular Lit shader</a>
     <a href="#CustomDiffuseAndSpecularLitShader">9. Creating a custom Diffuse and Specular Lit shader</a>
     <a href="#TextureShader">10. How to use a texture in a shader</a>
+    <a href="#Example11">11. PBR: Working with smoothness</a>
   </div>
   <button class="dropdown-btn">Definitions
     <i class="fa fa-caret-down"></i>
@@ -216,7 +217,8 @@
         <th>0.4</th>
         <th>February 22, 2023</th>
         <th>Reordered this table to have the most recent change be at the top
-          <br>Creation of example 10</th>
+          <br>Creation of example 10
+          <br>Creation of example 11</th>
       </tr>
       <tr>
         <th>0.3</th>
@@ -646,6 +648,31 @@
       To hook all this up, we need to create a Sample Texture 2D node that we can provide the texture and then connect that node to the Base Color section of the Master Stack.
     </p>
     <img class="centerImage  responsiveImage" src="images/Examples/10_3.gif">
+    
+
+  </div><!--End Section-->
+
+  <!--new section-->
+  <div class="section" id="Example11">
+    <h1>11. PBR: Working with smoothness</h1>
+    <p>
+      Smoothness is another part of the PBR shader. Where Base Color affects the overall color and look of the object, the Smoothness section will affect how smooth or rough an object looks.
+    </p>
+    <p>
+      Using the same method as example 10 but just with a different texture from Textures.com, I’m going to add a new variable for a Texture2D that will hold our roughness texture. 
+    </p>
+    <img class="centerImage  responsiveImage" src="images/Examples/11_1.gif">
+    <p>
+      We will then need to create a new Sample Texture 2D node and connect the variable to the node.
+    </p>
+    <img class="centerImage  responsiveImage" src="images/Examples/11_2.gif">
+    <p>
+      Now let’s talk about the color gray for a second. Color is made up of red, green, and blue values from 0-255. Gray is special because gray requires the R, G, and B to all be the same color. RGB(3,3,3) and RGB(212,212,212) are both gray but just with different intensities. So instead of using the full RGBA value, we can just use red, green, or blue for example.
+    </p>
+    For this example, I’m going to use the R value to connect to the Smoothness section of the Master Stack. On the right of my gif, you will see the update to the Game view where I already made a material and connected it to an object and this shader.
+    <p>
+    </p>
+    <img class="centerImage  responsiveImage" src="images/Examples/11_3.gif">
     
 
   </div><!--End Section-->
