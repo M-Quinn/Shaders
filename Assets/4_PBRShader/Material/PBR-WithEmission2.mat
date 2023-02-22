@@ -61,9 +61,15 @@ Material:
     m_Ints: []
     m_Floats:
     - _EmissionAmount: 1
+    - _Emission_1_Amount: 0
+    - _Emission_2_Amount: 0
+    - _Emission_Amount: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Strength: 0.2
     m_Colors:
     - _Color: {r: 0.7641875, g: 0.18141675, b: 0.8584906, a: 0}
+    - _Emission_Color: {r: 0.7641875, g: 0.18141675, b: 0.8584906, a: 0}
+    - _Emission_Color_1: {r: 0.7641875, g: 0.18141675, b: 0.8584906, a: 0}
+    - _Emission_Color_2: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
