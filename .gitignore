@@ -9,13 +9,17 @@
 /[Bb]uilds/
 /[Ll]ogs/
 /[Mm]emoryCaptures/
-#/[Aa]ssets/Textures/Textures.com/*
-#/[Aa]ssets/Textures/Textures.com/*.meta
-#/[Aa]ssets/Textures/FreeStockTextures.com/*
-#/[Aa]ssets/Textures/FreeStockTextures.com/*.meta
+/[Aa]ssets/Textures/Textures.com/*
+/[Aa]ssets/Textures/Textures.com/*.meta
+/[Aa]ssets/Textures/FreeStockTextures.com/*
+/[Aa]ssets/Textures/FreeStockTextures.com/*.meta
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 #!/[Aa]ssets/**/*.meta
+!/[Aa]ssets/Textures/Textures.com/README_AssetsRequired.txt
+!/[Aa]ssets/Textures/Textures.com/README_AssetsRequired.txt.meta
+!/[Aa]ssets/Textures/FreeStockTextures.com/README_AssetsRequired.txt
+!/[Aa]ssets/Textures/FreeStockTextures.com/README_AssetsRequired.txt.meta
 
 # Uncomment this line if you wish to ignore the asset store tools plugin
 # /[Aa]ssets/AssetStoreTools*
