@@ -1,4 +1,4 @@
-# Shaders
+# Shader Graph
 *Unity Version 2021.3*
 License: MIT - You may use this project in any form, however you must include the license unaltered in your project.
 
