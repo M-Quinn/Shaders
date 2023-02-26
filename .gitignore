@@ -13,6 +13,9 @@
 /[Aa]ssets/Textures/Textures.com/*.meta
 /[Aa]ssets/Textures/FreeStockTextures.com/*
 /[Aa]ssets/Textures/FreeStockTextures.com/*.meta
+/[Aa]ssets/ScifiOfficeLite/*
+/[Aa]ssets/ScifiOfficeLite/*.meta
+/[Aa]ssets/ScifiOfficeLite.meta
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 #!/[Aa]ssets/**/*.meta
